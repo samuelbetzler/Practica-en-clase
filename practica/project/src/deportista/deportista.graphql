@@ -1,0 +1,32 @@
+type Deportista {
+  id: Int!
+  nombre: String!
+  identificacion: String!
+  equipo: String!
+  estado: String!
+}
+
+input CreateDeportistaInput {
+  nombre: String!
+  identificacion: String!
+  equipo: String!
+  estado: String!
+}
+
+input UpdateDeportistaInput {
+  nombre: String
+  identificacion: String
+  equipo: String
+  estado: String
+}
+
+type Query {
+  deportistas: [Deportista!]!
+  deportista(id: Int!): Deportista
+}
+
+type Mutation {
+  createDeportista(createDeportistaInput: CreateDeportistaInput!): Deportista!
+  updateDeportista(id: Int!, updateDeportistaInput: UpdateDeportistaInput!): Deportista!
+  removeDeportista(id: Int!): Deportista!
+}

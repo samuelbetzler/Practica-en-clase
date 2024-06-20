@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const CanchaController_1 = require("../../controllers/typeorm/CanchaController");
+const router = (0, express_1.Router)();
+router.get('/', CanchaController_1.getAllCanchas);
+router.get('/:id', CanchaController_1.getCanchaById);
+router.post('/', CanchaController_1.createCancha);
+router.put('/:id', CanchaController_1.updateCancha);
+router.delete('/:id', CanchaController_1.deleteCancha);
+exports.default = router;

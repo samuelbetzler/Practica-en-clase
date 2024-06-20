@@ -1,0 +1,38 @@
+type SeparacionCancha {
+  id: Int!
+  canchaId: Int!
+  deportistaId: Int!
+  fechaSeparacion: String!
+  horaDesde: String!
+  horaHasta: String!
+  estado: String!
+}
+
+input CreateSeparacionCanchaInput {
+  canchaId: Int!
+  deportistaId: Int!
+  fechaSeparacion: String!
+  horaDesde: String!
+  horaHasta: String!
+  estado: String!
+}
+
+input UpdateSeparacionCanchaInput {
+  canchaId: Int
+  deportistaId: Int
+  fechaSeparacion: String
+  horaDesde: String
+  horaHasta: String
+  estado: String
+}
+
+type Query {
+  separacionesCancha: [SeparacionCancha!]!
+  separacionCancha(id: Int!): SeparacionCancha
+}
+
+type Mutation {
+  createSeparacionCancha(createSeparacionCanchaInput: CreateSeparacionCanchaInput!): SeparacionCancha!
+  updateSeparacionCancha(id: Int!, updateSeparacionCanchaInput: UpdateSeparacionCanchaInput!): SeparacionCancha!
+  removeSeparacionCancha(id: Int!): SeparacionCancha!
+}

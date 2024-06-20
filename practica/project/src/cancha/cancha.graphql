@@ -1,0 +1,26 @@
+type Cancha {
+  id: Int!
+  descripcion: String!
+  estado: String!
+}
+
+input CreateCanchaInput {
+  descripcion: String!
+  estado: String!
+}
+
+input UpdateCanchaInput {
+  descripcion: String
+  estado: String
+}
+
+type Query {
+  canchas: [Cancha!]!
+  cancha(id: Int!): Cancha
+}
+
+type Mutation {
+  createCancha(createCanchaInput: CreateCanchaInput!): Cancha!
+  updateCancha(id: Int!, updateCanchaInput: UpdateCanchaInput!): Cancha!
+  removeCancha(id: Int!): Cancha!
+}

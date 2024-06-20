@@ -1,0 +1,14 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "sam",
+    "password": "1234",
+    "database": "deporte",
+    "entities": ["dist/**/*.entity.js"],
+    "migrations": ["dist/migration/*.js"],
+    "cli": {
+      "migrationsDir": "src/migration"
+    }
+  }
+  

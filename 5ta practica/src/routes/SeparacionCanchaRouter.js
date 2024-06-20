@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const SeparacionCanchaController_1 = require("../controllers/SeparacionCanchaController");
+const router = (0, express_1.Router)();
+router.get('/', SeparacionCanchaController_1.getAllSeparaciones);
+router.get('/:id', SeparacionCanchaController_1.getSeparacionById);
+router.post('/', SeparacionCanchaController_1.createSeparacion);
+router.put('/:id', SeparacionCanchaController_1.updateSeparacion);
+router.delete('/:id', SeparacionCanchaController_1.deleteSeparacion);
+exports.default = router;
