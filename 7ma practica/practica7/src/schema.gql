@@ -1,0 +1,100 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Deportista {
+  id: ID!
+  nombre: String!
+  identificacion: String!
+  equipo: String!
+  estado: String!
+  separaciones: [SeparacionCancha!]
+}
+
+type SeparacionCancha {
+  id: ID!
+  fechaSeparacion: DateTime!
+  horaDesde: DateTime!
+  horaHasta: DateTime!
+  estado: String!
+  cancha: Cancha!
+  deportista: Deportista!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Cancha {
+  id: Int!
+  descripcion: String!
+  estado: String!
+  separaciones: [SeparacionCancha!]
+}
+
+type Query {
+  canchas: [Cancha!]!
+  cancha(id: Int!): Cancha!
+  deportistas: [Deportista!]!
+  deportista(id: ID!): Deportista!
+  separacionesCancha: [SeparacionCancha!]!
+  separacionCancha(id: Float!): SeparacionCancha!
+}
+
+type Mutation {
+  createCancha(createCanchaInput: CreateCanchaInput!): Cancha!
+  updateCancha(id: Int!, updateCanchaInput: UpdateCanchaInput!): Cancha!
+  removeCancha(id: Int!): Cancha!
+  createDeportista(createDeportistaInput: CreateDeportistaInput!): Deportista!
+  updateDeportista(id: ID!, updateDeportistaInput: UpdateDeportistaInput!): Deportista!
+  removeDeportista(id: ID!): Deportista!
+  createSeparacionCancha(createSeparacionCanchaInput: CreateSeparacionCanchaInput!): SeparacionCancha!
+  updateSeparacionCancha(id: Float!, updateSeparacionCanchaInput: UpdateSeparacionCanchaInput!): SeparacionCancha!
+  removeSeparacionCancha(id: Float!): SeparacionCancha!
+}
+
+input CreateCanchaInput {
+  descripcion: String!
+  estado: String = "Activo"
+}
+
+input UpdateCanchaInput {
+  descripcion: String
+  estado: String = "Activo"
+  id: Int!
+}
+
+input CreateDeportistaInput {
+  nombre: String!
+  identificacion: String!
+  equipo: String!
+  estado: String! = "Activo"
+}
+
+input UpdateDeportistaInput {
+  nombre: String
+  identificacion: String
+  equipo: String
+  estado: String = "Activo"
+  id: ID!
+}
+
+input CreateSeparacionCanchaInput {
+  canchaId: Int!
+  deportistaId: Int!
+  fechaSeparacion: DateTime!
+  horaDesde: DateTime!
+  horaHasta: DateTime!
+  estado: String! = "Activo"
+}
+
+input UpdateSeparacionCanchaInput {
+  canchaId: Int
+  deportistaId: Int
+  fechaSeparacion: DateTime
+  horaDesde: DateTime
+  horaHasta: DateTime
+  estado: String = "Activo"
+  id: ID!
+}
